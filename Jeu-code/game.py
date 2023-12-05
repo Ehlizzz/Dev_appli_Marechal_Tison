@@ -11,7 +11,7 @@ class Game:
 
         #generer le joueur
         self.all_players = pygame.sprite.Group()
-        self.player = Player(self)
+        self.player = Player()
         self.all_players.add(self.player)
 
         #Group d'obstacles
@@ -25,28 +25,14 @@ class Game:
         self.spawn_obstacle()
 
     def game_over(self):
-        self.all_obstacles = pygame.sprite.Group()
-        self.player.health = self.player.max_health
-        self.player.rect.y = 500
 
         self.jeustarting = False
     def update(self, screen):
         # aplliquer le joueur
-        screen.blit(self.player.image, self.player.rect)
-
+        self.player.update()
         # Verifier si le joueur saute
         if self.pressed.get(pygame.K_UP):
-            self.player.sauter()
-
-        # Recuperer les obstacles
-        for obstacles in self.all_obstacles:
-            obstacles.deplacer()
-
-        # regarde les collisions
-        self.player.collision()
-
-        # appliquer les obstacles
-        self.all_obstacles.draw(screen)
+            self.player.saut()
 
 
     def check_collision(self, sprite, group):

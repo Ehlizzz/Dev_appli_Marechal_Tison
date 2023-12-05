@@ -2,17 +2,17 @@ import pygame
 pygame.init()
 from game import Game
 from accueil import Accueil
-
+from player import Player
 # Generer la fenetre du jeu
 pygame.display.set_caption("Jeu dev appli")
 screen = pygame.display.set_mode((1080, 720))
 
 #Importer l'arriere plan
-background = pygame.image.load("Assets/bg.jpg")
+background = pygame.image.load("images/paysage_mario.png")
 
 #Charger le jeu
 game = Game()
-
+player = Player()
 #charger l'acceuil
 accueil = Accueil(game)
 
@@ -26,9 +26,9 @@ while running:
 
     if game.jeustarting == True:
         # appliquer l'arriere plan
-        screen.blit(background, (0, -200))
+        screen.blit(background, (0, 0))
+        player.draw(screen)
         game.update(screen)
-
     else:
         accueil.show_accueil()
         accueil.bouton_selection()

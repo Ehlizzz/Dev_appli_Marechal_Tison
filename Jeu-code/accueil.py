@@ -15,7 +15,7 @@ class Accueil:
         self.CASE_WIDTH, self.CASE_HEIGHT = 200, 200
 
         # Combien de case par la couleur
-        self.rect_colors = ['white', 'white', 'white']
+        self.rect_colors = ['white', 'white']
 
         #Création bouton start
         self.rect_start = pygame.Rect((self.WIDTH / 2) - 150, 550, 300, 75)

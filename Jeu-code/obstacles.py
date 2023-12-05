@@ -1,7 +1,7 @@
 import pygame
 import random
 #Creer la class obstacle
-class  Obstacle(pygame.sprite.Sprite):
+class Obstacle(pygame.sprite.Sprite):
     def __init__(self, game):
         super().__init__()
         self.game = game
@@ -14,7 +14,7 @@ class  Obstacle(pygame.sprite.Sprite):
         self.velocity = 1
 
     def deplacer(self):
-        if not self.game.check_collision(self, self.game.all_players):
+        if not self.game.check_collision(self,self.game.all_players):
             self.rect.x -= self.velocity
         if self.rect.x <= 0:
             self.rect.x = 2000
