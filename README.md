@@ -41,8 +41,10 @@ Jorio & Eligi vise à créer un jeu 2D où un personnage doit sauter pour évite
 II) Documentation Technique
 
 1) Structure des Fichiers
-  -main.py: Point d'entrée du programme.
-  -accueil.py: Gestion de l'écran d'accueil.
-  -obstacles.py: Implémentation de la classe pour les obstacles.
-  -perso.py: Implémentation de la classe pour le personnage.
-  -score.py: Gestion du score.
+    -main.py: Point d'entrée du programme.
+    -accueil.py: Gestion de l'écran d'accueil.
+    -obstacles.py: Implémentation de la classe pour les obstacles.
+    -perso.py: Implémentation de la classe pour le personnage.
+    -score.py: Gestion du score.
+
+    -raport : Rapport du projet.
