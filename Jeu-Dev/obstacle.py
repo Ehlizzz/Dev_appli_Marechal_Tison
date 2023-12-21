@@ -1,6 +1,7 @@
 import random
 import pygame
-class Obstacle():
+
+class Obstacle:
     # Initialisation de l'objet Obstacle
     def __init__(self):
         # Liste des images d'obstacles

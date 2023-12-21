@@ -1,5 +1,5 @@
 
-from perso import Player
+from perso import Perso
 from obstacle import Obstacle
 from accueil import Accueil
 from score import Score
@@ -14,7 +14,7 @@ if __name__ == '__main__':
     pygame.mixer.init()
 
 
-    player = Player()  # Initialisation du joueur
+    perso = Perso()  # Initialisation du joueur
     accueil = Accueil()  # Initialisation de l'écran d'accueil
 
     score = Score()  # Initialisation du système de score
@@ -31,14 +31,14 @@ if __name__ == '__main__':
 
         input = pygame.key.get_pressed() #Recupere les touches saisies
 
-        screen.blit(player.background[0], (0, -80))  # Affichage du fond
+        screen.blit(perso.background[0], (0, -80))  # Affichage du fond
 
         # Vérification si l'écran d'accueil est en cours
         if not accueil.gamerun:
             if accueil.selection == 0:
-                player.mario()  # selectionne Mario sur l'écran d'accueil
+                perso.mario()  # selectionne Mario sur l'écran d'accueil
             else:
-                player.luigi()  # selectionne luigi sur l'écran d'accueil
+                perso.luigi()  # selectionne luigi sur l'écran d'accueil
 
             accueil.show_accueil(screen)  # Affichage de l'écran d'accueil
             score.draw_score_high(screen)  # Affichage du score le plus élevé
@@ -48,7 +48,7 @@ if __name__ == '__main__':
             score.scorereset()  # Réinitialisation du score
         else:
             pygame.display.set_caption("Jeu")  # Changement du titre de la fenêtre en "Jeu"
-            player.draw(screen)  # Affiche le joueur
+            perso.draw(screen)  # Affiche le joueur et le fond
             new_obstacles = []  # Création d'une nouvelle liste pour stocker les obstacles mis à jour
 
 
@@ -72,14 +72,14 @@ if __name__ == '__main__':
 
             # Vérification de la collision avec chaque obstacle
             for obstacle in obstacles:
-                if player.mario_rect.colliderect(obstacle.rect):
+                if perso.perso_rect.colliderect(obstacle.rect):
                     pygame.mixer.music.load('images/Mario Death.mp3')
                     pygame.mixer.music.play(0)
                     accueil.gamerun = False  # Arrêt du jeu en cas de collision avec un obstacle
                     break
 
-            player.update(input)  # Mise à jour de la position du joueur en fonction de la saisie de toute à l'heure
-            player.decor()  # Affichage des éléments déco
+            perso.update(input)  # Mise à jour de la position du joueur en fonction de la saisie de toute à l'heure
+            perso.decor()  # Affichage des éléments déco
 
         temps.tick(60)  # Limite le nombre d'images par seconde à 60
         pygame.display.update() # Actualise la page

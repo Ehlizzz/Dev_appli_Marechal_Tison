@@ -1,6 +1,5 @@
 import pygame
 
-
 class Score:
 
     # Initialisation des scores et des éléments liés à l'affichage du texte
@@ -12,29 +11,24 @@ class Score:
         # Initialisation de la police et de la taille du texte
         self.police = pygame.font.Font(None, 36)
 
-        # Création de la surface de texte pour le score
-        self.texte_surface = self.police.render("Score : " + str(self.score), True, "black", "gray")
+        self.score_couleur = "red"
+        self.high_score_couleur = "green"
 
-        # Position du texte pour le score
-        self.texte_rect = self.texte_surface.get_rect()
-        self.texte_rect.center = (1220, 75)
-
-        # Création de la surface de texte pour le meilleur score
-        self.texte_surface1 = self.police.render("High_Score : " + str(self.high_score), True, "black", "gray")
-
-        # Position du texte pour le meilleur score
-        self.texte_rect1 = self.texte_surface1.get_rect()
-        self.texte_rect1.center = (1187, 108)
+        self.init_score_surface()
 
     # Initialisation des surfaces de texte pour le score et le meilleur score
     def init_score_surface(self):
-        self.texte_surface = self.police.render("Score : " + str(self.score), True, "black", "gray")
-        self.texte_surface1 = self.police.render("High_Score : " + str(self.high_score), True, "black", "gray")
+        self.texte_surface = self.police.render("Score : " + str(self.score),True, self.score_couleur)
+        self.texte_rect = self.texte_surface.get_rect()
+        self.texte_rect.center = (1203, 75)
+
+        self.texte_surface1 = self.police.render("High_Score : " + str(self.high_score), True, self.high_score_couleur)
+        self.texte_rect1 = self.texte_surface1.get_rect()
+        self.texte_rect1.center = (1170, 108)
 
     # Affichage du score et du meilleur score à l'écran
     def draw_score(self, screen):
         screen.blit(self.texte_surface, self.texte_rect)
-        self.texte_rect1.center = (1187, 108)
         screen.blit(self.texte_surface1, self.texte_rect1)
 
     # Affichage du meilleur score avec effet clignotant
