@@ -1,4 +1,4 @@
-
+La branche "commun" se compose de l'entiéreté des fichiers finis de José et d'Elise.
 Jorio & Eligi - Projet de Jeu 2D
 
 Partie Générale
